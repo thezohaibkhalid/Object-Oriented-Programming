@@ -1,0 +1,44 @@
+List of Questions that we have done in 18.1 - 18.4
+18.1  - Write a program that writes 3 character in a file using formatted I/O .
+
+18.2  - Write a program that inputs the names of five cities and store them in a file city.txt
+
+
+
+18.3 -- Write a program that reads the contents of the file test.txt and displays on the screen
+
+
+18.4 -- Write a program that displays all records from city.txt prepared in previous example
+
+
+18.5 -- Write a program that stored five lines of a string in a file and then displays them 
+//on the screen by reading these lines.
+
+
+18.6 -- Write a program that inputs five characters from the user and stores them in a file
+
+
+
+18.7 -- Write a program that writes a characters from a text file and displays them on screen
+
+
+18.8 -- Write a program that reads the character from a text file. It counts total number of characters and total number of vowels in the file.
+
+
+18.9 -- Write a program that inputs five integers and stores it in a file using binary I/O.
+
+
+18.10 -- Write a program that uses a structure variable to input records of three students and stores it in  students.txt
+in binary I/O. Each record console of Roll No, Name and Marks
+
+18.11 -- Write a program that reads the records stored in students.txt file and 
+displays them 
+
+18.12 -- Write a program that creates a file to store name and email of the user using 
+structure
+
+18.13 -- Write a program that stores an object to a file country.txt using binary I/O.
+
+
+18.14 -- Write a program that reads the contents of country.txt and display on the screen.
+

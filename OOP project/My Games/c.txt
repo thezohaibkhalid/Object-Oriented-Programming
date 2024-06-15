@@ -1,0 +1,236 @@
+/* -- IMPORTS -- */
+	#include <pthread.h>	// For the multithreading functions
+	#include  <string.h>	// For string manipulation functions
+	#include   <stdio.h>	// For input/output functions
+	#include   <conio.h>	// For getch() function
+	#include    <time.h>	// For the rand() function
+
+/* -- FUNCTION PROTOTYPES -- */
+	void MoveSnake (int x, int y);	// Function to adjust the x,y of the snakes head
+	void AddSegment();				// Function to add a new segment to the snake
+	void NewFood   ();				// Function to spawn a new food piece
+	void HitTest   ();				// Function to test if the snake is coliding with anything
+	void Clock     ();				// Function to update the clock
+	void Draw      ();				// Function to draw the game
+	void Move      ();				// Function to convert the input to actual movement
+	void End       ();				// Function to clean up, display scores and exit
+	void In        ();				// Function to get the user input and store it
+	int  InSnake   (int x, int y);	// Function to test if the x,y position is in the snake's body
+
+/* -- VARIABLES -- */
+	int tailXPosition = 11;										// Variable to hold the x position of the tail
+	int tailYPosition = 4;										// Variable to hold the y position of the tail
+	int foodXPosition;											// Variable to hold the x position of the food
+	int foodYPosition;											// Variable to hold the y position of the food
+	int snakeSize = 3;											// Variable to hold the length of the snake
+	int score = 0;												// Variable to hold the score of the current player
+	int timer = 0;												// Variable to hold the time the current player
+
+	char UserInput = '\0';										// Variable to hold the key the user just pressed
+	char direction = 'a';										// Variable to hold the direction of the snake
+
+	int snakeBodySegments[128][2] = {{8, 4},{9, 4},{10, 4}};	// Variable to hold the x,y positions of segments
+
+/* -- FUNCTIONS -- */
+	/* -- THREADING FUNCTIONS -- */
+		void Clock()			// Function to update the clock
+		{
+			while (1)			// Infinite loop
+			{
+				Sleep(1000);	// Delay 1000 milliseconds
+				timer++;		// Add 1 to the timer variable
+			}
+		}
+
+		void In()						// Function to get the user input and store it
+		{
+			char c;						// Character variable to hold the input
+
+			while (1)					// Infinite loop
+			{
+				c = getch();			// Wait untill a user presses a key and store it in c
+
+				if (c == 'q') {End();}	// If the user pressed the q key >> call the End() function 
+
+				UserInput = c;			// Store the key the user pressed in the global variable UserInput
+			}
+		}
+
+	/* -- SNAKE FUNCTIONS -- */
+		void AddSegment()										// Function to add a new segment to the snake
+		{	
+			snakeBodySegments[snakeSize][0] = tailXPosition;	// Set the x value of the new segment to the stored location
+			snakeBodySegments[snakeSize][1] = tailYPosition;	// Set the y value of the new segment to the stored location
+			snakeSize++;										// Add 1 to the size of the snake
+		}
+
+		int InSnake(int x, int y)													// Function to test if the x,y position is in the snake's body
+		{
+			for (int i = 1; i < snakeSize; i++)										// Loop through each segment in the snake's body
+			{
+				if (snakeBodySegments[i][0] == x && snakeBodySegments[i][1] == y)	// Test if the given position is in the snake
+				{
+					return 1;														// Return TRUE
+				}
+			}
+
+			return 0;																// Return FALSE
+		}
+
+		void MoveSnake(int x, int y)									// Function to adjust the x,y of the snakes head
+		{
+			tailXPosition = snakeBodySegments[snakeSize - 1][0];		// Set the x for a possible new tail segment to the current last segments x
+			tailYPosition = snakeBodySegments[snakeSize - 1][1];		// Set the y for a possible new tail segment to the current last segments y
+
+			for (int i = snakeSize -1; i > 0; i--)						// Loop through each segment of the snake in reverse
+			{
+				snakeBodySegments[i][0] = snakeBodySegments[i - 1][0];	// Set the x of the current segment to the x of the next segment
+				snakeBodySegments[i][1] = snakeBodySegments[i - 1][1];	// Set the y of the current segment to the y of the next segment
+			}
+
+			snakeBodySegments[0][0] += x;								// Set the x of the head to the new given offset
+			snakeBodySegments[0][1] += y;								// Set the y of the head to the new given offset
+
+			UserInput = '\0';											// Set the user input to a null character
+		}
+
+	/* -- OTHER FUNCTIONS -- */
+		void Move()											// Function to convert the input to actual movement
+		{
+			if (UserInput == 'w' && direction != 's')		// If the user pressed w and we are not moving in the direction of s
+			{
+				MoveSnake(0, -1);							// Actualy move the snake
+				direction = 'w';							// Set the direction to w
+			}
+			else if (UserInput == 'a' && direction != 'd')	// If the user pressed a and we are not moving in the direction of d
+			{
+				MoveSnake(-1, 0);							// Actualy move the snake
+				direction = 'a';							// Set the direction to a
+			}
+			else if (UserInput == 's' && direction != 'w') 	// If the user pressed s and we are not moving in the direction of w
+			{
+				MoveSnake(0, 1);							// Actualy move the snake
+				direction = 's';							// Set the direction to s
+			}
+			else if (UserInput == 'd' && direction != 'a')	// If the user pressed d and we are not moving in the direction of a
+			{
+				MoveSnake(1, 0);							// Actualy move the snake
+				direction = 'd';							// Set the direction to d
+			}
+			else											// If the user did not provide valid input
+			{
+				UserInput = direction;						// Set the user input to the current direction
+				Move();										// Recall the move function as there should now be valid input
+			}
+		}
+
+		void NewFood()					// Function to spawn a new food piece
+		{
+			int x;						// Variable to hold the generated x location
+			int y;						// Variable to hold the generated y location
+
+			while (1)					// Infinite loop
+			{
+				x = (rand() % 16) + 1;	// Generate a random number between 1 and 16, then store it in x
+				y = (rand() % 8) + 1; 	// Generate a random number between 1 and 8, then store it in y
+
+				/* V If the x and y are in the snakes body or head V */
+				if (InSnake(x , y) == 0 && snakeBodySegments[0][0] != x && snakeBodySegments[0][1] != y)
+				{
+					break;				// Leave the loop
+				}
+			}
+
+			foodXPosition = x;			// Store the generated x in foodXPosition
+			foodYPosition = y;			// Store the generated y in foodYPosition
+		}
+
+		void Draw()														// Function to draw the game
+		{
+			char buff[1000];											// String to store the game board
+			/* V Display a pop up, the score and time in the top V */
+			sprintf(buff, "(Press Q to quit)\nScore: %d - Time: %d\n",score, timer);
+
+			for (int y = 0; y < 10; y++)								// Loop 10 times
+			{
+				for (int x = 0; x < 18; x++)							// Loop 18 times
+				{
+					if (y == 0 || y == 9 || x == 0 || x == 17)			// If its on the edge of the board
+					{
+						strcat(buff, "[]");								// Display []
+					}
+					/* V If its the head of the snake V */
+					else if (x == snakeBodySegments[0][0] && y == snakeBodySegments[0][1])
+					{
+						strcat(buff, "\e[0;32m()\e[0;0m");				// Display [] in green
+					}
+					else if (InSnake(x, y))								// If its in the snake
+					{
+						strcat(buff, "\e[0;34m[]\e[0;0m");				// Display [] in blue
+					}
+					else if (x == foodXPosition && y == foodYPosition)	// If its the food
+					{
+						strcat(buff, "\e[0;31m()\e[0;0m");				// Display [] in red
+					}										
+					else												// If its not a given position
+					{
+						strcat(buff, "  "); 							// Display '  '
+					}
+				} 
+				strcat(buff, "\n");										// Add a new line to the display
+			}
+
+			strcat(buff, "\e[36D\e[12A");								// Move back 36 characters and move up 12 lines
+
+			printf(buff);												// Display the buffer
+		}
+
+		void End()						// Function to clean up, display scores and exit
+		{
+			printf("\e[13B\e[?25h");	// Move the cursor down 13 lines and display the cursor
+
+			exit(0);					// Leave the programm
+		}
+
+		void HitTest()																					// Function to test if the snake is coliding with anything
+		{
+			if (foodXPosition == snakeBodySegments[0][0] && foodYPosition == snakeBodySegments[0][1])	// If the snakes head matches the food
+			{
+				score++;																				// Add 1 to the score
+				AddSegment();																			// Add a segment to the snake
+				NewFood();																				// Generate new food
+			}
+			/* V If the head of the snake is touching the edge V */
+			else if (snakeBodySegments[0][1] == 0 || snakeBodySegments[0][1] == 9 || snakeBodySegments[0][0] == 0 || snakeBodySegments[0][0] == 17)
+			{
+				End();																					// End the game
+			}
+			else if (InSnake(snakeBodySegments[0][0], snakeBodySegments[0][1]))							// If the snakes head is touching the body
+			{
+				End();																					// End the game
+			}
+		}
+
+/* -- MAIN ENTRY POINT -- */
+	int main()						
+	{
+		printf("\e[?25l");									// Hide the cursor
+		NewFood();											// Generate food
+
+		pthread_t inputThread;								// Make a thread ID H
+		pthread_create(&inputThread, NULL, In, NULL);		// Summon a thread wich calls the function in
+
+		pthread_t clockThread;								// Make a thread ID
+		pthread_create(&clockThread, NULL, Clock, NULL);	// Summon a thread wich calls the function Clock
+		
+		while (1)											// Infinite loop
+		{
+			Sleep(150);										// Delay 150 milliseconds
+			Move();											// Call the move function
+			Draw();											// Call the Draw function
+			HitTest();										// Call the HitTest function
+		}
+
+		End();												// Call the End function
+		return 0;											// Exit the programm
+	}

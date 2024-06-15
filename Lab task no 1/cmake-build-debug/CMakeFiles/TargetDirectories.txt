@@ -1,0 +1,3 @@
+D:/2nd-Semester/OOP/OOP Codes/Lab task no 1/cmake-build-debug/CMakeFiles/Lab_task_no_1.dir
+D:/2nd-Semester/OOP/OOP Codes/Lab task no 1/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/2nd-Semester/OOP/OOP Codes/Lab task no 1/cmake-build-debug/CMakeFiles/rebuild_cache.dir

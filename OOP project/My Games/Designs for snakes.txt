@@ -1,0 +1,251 @@
+         /^\/^\
+         _|__|  O|
+\/     /~     \_/ \
+ \____|__________/  \
+        \_______      \
+                `\     \                 \
+                  |     |                  \
+                 /      /                    \
+                /     /                       \\
+              /      /                         \ \
+             /     /                            \  \
+           /     /             _----_            \   \
+          /     /           _-~      ~-_         |   |
+         (      (        _-~    _--_    ~-_     _/   |
+          \      ~-____-~    _-~    ~-_    ~-_-~    /
+            ~-_           _-~          ~-_       _-~
+               ~--______-~                ~-___-~
+
+                        _____
+                    .-'`     '.
+                 __/  __       \
+                /  \ /  \       |    ___
+               | /`\| /`\|      | .-'  /^\/^\
+               | \(/| \(/|      |/     |) |)|
+              .-\__/ \__/       |      \_/\_/__..._
+      _...---'-.                /   _              '.
+     /,      ,             \   '|  `\                \
+    | ))     ))           /`|   \    `.       /)  /) |
+    | `      `          .'       |     `-._         /
+    \                 .'         |     ,_  `--....-'
+     `.           __.' ,         |     / /`'''`
+       `'-.____.-' /  /,         |    / /
+           `. `-.-` .'  \        /   / |
+             `-.__.'|    \      |   |  |-.
+                _.._|     |     /   |  |  `'.
+          .-''``    |     |     |   /  |     `-.
+       .'`         /      /     /  |   |        '.
+     /`           /      /     |   /   |\         \
+    /            |      |      |   |   /\          |
+   ||            |      /      |   /     '.        |
+   |\            \      |      /   |       '.      /
+   \ `.           '.    /      |    \        '---'/
+    \  '.           `-./        \    '.          /
+     '.  `'.            `-._     '.__  '-._____.'--'''''--.
+       '-.  `'--._          `.__     `';----`              \
+          `-.     `-.          `."'```                     ;
+             `'-..,_ `-.         `'-.                     /
+                    '.  '.           '.                 .'
+
+
+
+
+            ____
+      _,.-'`_ o `;__,                
+       _.-'` '---'  '
+                    ____
+                 .'`_ o `;__,
+       .       .'.'` '---'  '            
+       .`-...-'.'
+        `-...-'
+                        _,.--.
+    --..,_           .'`__ o  `;__,
+       `'.'.       .'.'`  '---'`  '          
+          '.`-...-'.'
+            `-...-'
+
+    --..,_                     _,.--.
+       `'.'.                .'`__ o  `;__.      
+          '.'.            .'.'`  '---'`  `
+            '.`'--....--'`.'
+              `'--....--'`
+
+
+#include <iostream>
+#include <thread>
+#include <string>
+#include <ctime>
+#include <cstdlib>
+#include <conio.h>
+#include <windows.h>
+
+using namespace std;
+
+void MoveSnake(int x, int y);
+void AddSegment();
+void NewFood();
+void HitTest();
+void Clock();
+void Draw();
+void Move();
+void End();
+void In();
+int InSnake(int x, int y);
+
+int tailXPosition = 11;
+int tailYPosition = 4;
+int foodXPosition;
+int foodYPosition;
+int snakeSize = 3;
+int score = 0;
+int timer = 0;
+
+char UserInput = '\0';
+char direction = 'a';
+
+int snakeBodySegments[128][2] = {{8, 4}, {9, 4}, {10, 4}};
+
+void Clock() {
+    while (true) {
+        Sleep(1000);
+        timer++;
+    }
+}
+
+void In() {
+    char c;
+
+    while (true) {
+        c = _getch();
+
+        if (c == 'q') {
+            End();
+        }
+
+        UserInput = c;
+    }
+}
+
+void AddSegment() {
+    snakeBodySegments[snakeSize][0] = tailXPosition;
+    snakeBodySegments[snakeSize][1] = tailYPosition;
+    snakeSize++;
+}
+
+int InSnake(int x, int y) {
+    for (int i = 1; i < snakeSize; i++) {
+        if (snakeBodySegments[i][0] == x && snakeBodySegments[i][1] == y) {
+            return 1;
+        }
+    }
+    return 0;
+}
+
+void MoveSnake(int x, int y) {
+    tailXPosition = snakeBodySegments[snakeSize - 1][0];
+    tailYPosition = snakeBodySegments[snakeSize - 1][1];
+
+    for (int i = snakeSize - 1; i > 0; i--) {
+        snakeBodySegments[i][0] = snakeBodySegments[i - 1][0];
+        snakeBodySegments[i][1] = snakeBodySegments[i - 1][1];
+    }
+
+    snakeBodySegments[0][0] += x;
+    snakeBodySegments[0][1] += y;
+
+    UserInput = '\0';
+}
+
+void Move() {
+    if (UserInput == 'w' && direction != 's') {
+        MoveSnake(0, -1);
+        direction = 'w';
+    } else if (UserInput == 'a' && direction != 'd') {
+        MoveSnake(-1, 0);
+        direction = 'a';
+    } else if (UserInput == 's' && direction != 'w') {
+        MoveSnake(0, 1);
+        direction = 's';
+    } else if (UserInput == 'd' && direction != 'a') {
+        MoveSnake(1, 0);
+        direction = 'd';
+    } else {
+        UserInput = direction;
+        Move();
+    }
+}
+
+void NewFood() {
+    int x, y;
+
+    while (true) {
+        x = rand() % 16 + 1;
+        y = rand() % 8 + 1;
+
+        if (InSnake(x, y) == 0 && snakeBodySegments[0][0] != x && snakeBodySegments[0][1] != y) {
+            break;
+        }
+    }
+
+    foodXPosition = x;
+    foodYPosition = y;
+}
+
+void Draw() {
+    cout << "(Press Q to quit)\nScore: " << score << " - Time: " << timer << "\n";
+
+    for (int y = 0; y < 10; y++) {
+        for (int x = 0; x < 18; x++) {
+            if (y == 0 || y == 9 || x == 0 || x == 17) {
+                cout << "[]";
+            } else if (x == snakeBodySegments[0][0] && y == snakeBodySegments[0][1]) {
+                cout << "\033[32m()\033[0m";
+            } else if (InSnake(x, y)) {
+                cout << "\033[34m[]\033[0m";
+            } else if (x == foodXPosition && y == foodYPosition) {
+                cout << "\033[31m()\033[0m";
+            } else {
+                cout << "  ";
+            }
+        }
+        cout << "\n";
+    }
+}
+
+void End() {
+    cout << "\e[13B\e[?25h";
+    exit(0);
+}
+
+void HitTest() {
+    if (foodXPosition == snakeBodySegments[0][0] && foodYPosition == snakeBodySegments[0][1]) {
+        score++;
+        AddSegment();
+        NewFood();
+    } else if (snakeBodySegments[0][1] == 0 || snakeBodySegments[0][1] == 9 || snakeBodySegments[0][0] == 0 || snakeBodySegments[0][0] == 17) {
+        End();
+    } else if (InSnake(snakeBodySegments[0][0], snakeBodySegments[0][1])) {
+        End();
+    }
+}
+
+int main() {
+    cout << "\e[?25l";
+    NewFood();
+
+    thread inputThread(In);
+    thread clockThread(Clock);
+
+    while (true) {
+        Sleep(150);
+        Move();
+        Draw();
+        HitTest();
+    }
+
+    End();
+    return 0;
+}
+
+https://drive.google.com/file/d/1m1qDBK2Wv65X3Aa6R_P_8rfnCqN_0iCm/view
+davinci resolved audio   www.4download.net

@@ -1,0 +1,13 @@
+No 11>>>>   Q#.11: Write a program which takes values in an array and stores it in a pointer, then that pointer prints values of the array.
+Q#.12: Write a program which takes a string as an input and stores that string to a pointer. Then the user inputs if the character is there or not. If it's there, then it prints the character, else it says no character found.
+Q#.13: Create a file using fstream.
+Q#.14: Input a string into the file.
+Q#.15: Output a string from the file.
+Q#.16: Create a Unary Operator Overloading Program using prefix.
+Q#.17: Create a Unary Operator Overloading Program using postfix.
+Q#.18: Add and Subtract using Binary Operator Overloading.
+Q#.19: What is the output of the C++ program when a pointer to the Base class is used to call the display() function on an object of the Derived class, and why does this output occur?
+Q#.20: What is the output of the C++ program when a pointer to the Base class is used to call the display() function on an object of the Derived class, and why does this output occur, considering that the display() function in the Base class is declared as virtual?
+Q#.21: What will be the output of the C++ program provided, which involves a base class myclass, a derived class derived, and a pointer to the base class pointing to an object of the derived class, considering the virtual function show() in the base class?
+Q#.22: What is the output of the C++ program when an object of the derived class is created and its show() method is called, considering the use of a pure virtual function show() in the base class myclass and the initialization of the protected variable x in the derived class?
+Q#.23: What is the output of the C++ program when an object of class3 is created and its inc() method is called, considering the use of virtual inheritance, the inc() method override in various derived classes, and the shared variable x from the base class class1?

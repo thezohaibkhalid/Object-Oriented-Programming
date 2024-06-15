@@ -1,0 +1,16 @@
+    system("cls"); 
+/*-------System cls function (jo screen clear krna k lia use hota) uski ki jga isa mn manually 
+kr rha, kiunka iska lia header file conio.h use krna prti, or woh ki compiler mn dev mn bhi ki 
+versions mn nhin chalta, iski jga manually ya code use hoga jo nicha wali line mn ha*/
+
+  //    cout << string(100, '\n'); // Clears the screen
+agar conio.h function ka issue ay
+jismn system(cls ) ka issue ay ga woh manually krna ------> string(100, '\n')
+
+getch() ki jga cin.ignore(); usa kr skta
+or normally dev mn ya issue a rha ---------->non-static data member only avaliable with -std c++ 11 or gnu++11
+
+isa solve kr skta tool mn then compiler wala 1st option then i think code generator then usmn sb sa last wala hona usmn c++11 select krna, (OOP c++ 11 likha hona, i think)
+
+
+

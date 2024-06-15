@@ -1,0 +1,181 @@
+Q#.1: Write a C++ program that creates a class called laptop. The data members of the class are brand (string), model (string), serial (int), color (string), price (float), processor speed (float), RAM (int), screen size(float). Create member function that will set the individual values. Since the RAM can be upgraded therefore create a function that allows you to upgrade the RAM only. In the end, create a function that will display all the data members.
+Q#.2: Write a class called rectangle. Your task is to store the length and width of the rectangle. Write a member function called increment that will add 1 to the value of length and width. Also write a function that will compute the area of the rectangle. Finally write a constant function that will display the length, width and area of the rectangle. Demonstrate the use of the object in the main function. Make sure that the function names are meaningful.
+Q#.3: Write a program that creates a class called number. Your class will have two data members namely num (float) and result (int). To find the factorial of the entered number you will need to design three functions as follows: 
+1.	Function to determine if a number is a whole number or not 
+2.	Function to determine if the number is positive or not 
+3.	Function to find the actual factorial 
+4.	Function to display the number and its factorial Remember that to find the factorial the number must of positive and a whole number. 
+5.	So if any of these conditions are not met then you cannot determine the factorial.
+Q#.4: Design a program that uses the "Geometry" class. The program should prompt the user to enter the length and width of a shape. If both values are equal, the program should call the "square" function to calculate the area and perimeter of a square. Otherwise, it should call the "rectangle" function to calculate the area and perimeter of a rectangle.
+Q#.5: Write a C++ Program to implement a sphere class with appropriate members and member function to find the surface area and the volume. (Surface = 4 π r2 and Volume = 4/ 3 π r3).
+Q#.6: Design a menu-driven program that enables users to perform arithmetic operations on two numbers. The program should provide the options to add (+), subtract (-), multiply (*), or divide (/) and prompt users to input the numbers. In addition, the program should have the following functions:
+1. "show-Choice" function that displays the options available to the user and provides instructions on how to enter the data.
+2. "add" function that takes two arguments as input and returns their sum.
+3. "subtract" function that takes two arguments as input and returns their difference.
+4. "multiply" function that takes two arguments as input and returns their product.
+5. "divide" function that takes two arguments as input and returns their quotient.
+
+Q#.7: Create a Class named as Circle. Create a data member named as radius. Create member functions to calculate area of circle and circumference of the circle.
+Q#.8: Create a Class named as myClass. Create a data member which stores integer value. Create member function to set the value from user and to set the value manually and create getter function.
+Q#.9: Create a Class named as Complex. Create Data members named as real and imaginary.
+1.	Create a function to get values from the user.
+2.	Create a function to add two complex numbers.
+3.	Create a function to subtract two complex numbers.
+Q#.10: Write the definition of a class person. Add at least 5 attributes (private/public) to the person class. Add
+the following behavior (function) to the class:
+getName: returns name
+setName: sets the name to the passed string
+getAge: returns age
+setAge: sets the age to the passed integer
+isMale: returns true or false
+isFemale: returns true or false
+getOccupation: returns a string
+canCook : returns true or false
+Create different objects of class person which uses different version of constructors and access
+all the methods of the class and show the result of each method call in proper form.
+Default initialize all the attributes of the class. Also define parameterize and copy constructor of
+class
+Default values:
+Name: “”
+Age=0
+Gender=m (m for male, f for female)
+Occupation= student
+Cooking= n (n for no, y for yes)
+Qno11: Write a program which takes values in an array and stores it in pointer
+then that pointer prints values of the array.
+Qno12: Write a program which takes string as an input and stores that string to a pointer then user inputs if the character is there or not. If its there then it prints the character else it says no character found.
+Qno13: Create a file using f stream?
+Qno14: Input string into the file?
+Qno15: Output from string from the file?
+Qno16: Write A Program That Writes Three Character in a file using Formatted I/O?
+Qno17: Write A Program That Inputs the Names of Five Cities and stores them in a file city.txt?
+Qno18: Write A program that reads the contents of the test.txt and displays on the screen?
+Qno19: Write a program that displays all records from the city.txt prepared in the previous example?
+Qno20: Write a program that stored five lines of strings in a file and then displays them on the screen by reading those lines?
+Qno21: Write a program that inputs five characters from the user and stores them in a file?
+Qno22: Write a program that reads the characters from a text file and displays them on screen?
+Qno23: Write a program that reads the characters from a text file. It counts the total number of characters and total numbers of vowels in the file?
+Qno24: Write a program that inputs five integers and stores it in a file using binary (I/O)?
+Qno25: Write a program that uses a structure of variable to input records of three students and stores it in students.txt in binary. Each record consists of Roll No, Name and Marks?
+Qno26: Write a program that reads the records stored in students.txt file and displays them?
+Qno27: Write a program that creates a file to store name and email of the user using structure 
+Qno28: Write a program that stores an object to a file country.txt using binary(I/O)?
+Qno29: Write a Program that reads the contents of country.txt and display them on the screen?
+Qno30: Create Unary Operator Overloading Program using prefix?
+Qno31: Create Unary Operator Overloading Program using postfix?
+Qno32: Add and Subtract Using Binary Operator Overloading?
+Qno33: What is the output of the C++ program when a pointer to the Base class is used to call the display() function on an object of the Derived class, and why does this output occur?
+Qno34: What is the output of the C++ program when a pointer to the Base class is used to call the display() function on an object of the Derived class, and why does this output occur, considering that the display() function in the Base class is declared as virtual?
+Qno35: What will be the output of the C++ program provided, which involves a base class myclass, a derived class derived, and a pointer to the base class pointing to an object of the derived class, considering the virtual function show() in the base class?
+Qno36: What is the output of the C++ program when an object of the derived class is created and its show() method is called, considering the use of a pure virtual function show() in the base class myclass and the initialization of the protected variable x in the derived class?
+Qno37: What is the output of the C++ program when an object of class3 is created and its inc() method is called, considering the use of virtual inheritance, the inc() method override in various derived classes, and the shared variable x from the base class class1?
+
+
+Remaning questions list, 
+
+Q#.11: Write a program which takes values in an array and stores it in a pointer, then that pointer prints values of the array.
+Q#.12: Write a program which takes a string as an input and stores that string to a pointer. Then the user inputs if the character is there or not. If it's there, then it prints the character, else it says no character found.
+Q#.13: Create a file using fstream.
+Q#.14: Input a string into the file.
+Q#.15: Output a string from the file.
+Q#.16: Write a program that writes three characters in a file using Formatted I/O.
+Q#.17: Write a program that inputs the names of five cities and stores them in a file "city.txt".
+Q#.18: Write a program that reads the contents of the "test.txt" file and displays them on the screen.
+Q#.19: Write a program that displays all records from the "city.txt" file prepared in the previous example.
+Q#.20: Write a program that stores five lines of strings in a file and then displays them on the screen by reading those lines.
+Q#.21: Write a program that inputs five characters from the user and stores them in a file.
+Q#.22: Write a program that reads characters from a text file and displays them on the screen.
+Q#.23: Write a program that reads characters from a text file, counts the total number of characters, and total number of vowels in the file.
+Q#.24: Write a program that inputs five integers and stores them in a file using binary I/O.
+Q#.25: Write a program that uses a structure variable to input records of three students and stores them in "students.txt" in binary. Each record consists of Roll No, Name, and Marks.
+Q#.26: Write a program that reads the records stored in "students.txt" file and displays them.
+Q#.27: Write a program that creates a file to store name and email of the user using a structure.
+Q#.28: Write a program that stores an object to a file "country.txt" using binary I/O.
+Q#.29: Write a program that reads the contents of "country.txt" and displays them on the screen.
+Q#.30: Create a Unary Operator Overloading Program using prefix.
+Q#.31: Create a Unary Operator Overloading Program using postfix.
+Q#.32: Add and Subtract using Binary Operator Overloading.
+Q#.33: What is the output of the C++ program when a pointer to the Base class is used to call the display() function on an object of the Derived class, and why does this output occur?
+Q#.34: What is the output of the C++ program when a pointer to the Base class is used to call the display() function on an object of the Derived class, and why does this output occur, considering that the display() function in the Base class is declared as virtual?
+Q#.35: What will be the output of the C++ program provided, which involves a base class myclass, a derived class derived, and a pointer to the base class pointing to an object of the derived class, considering the virtual function show() in the base class?
+Q#.36: What is the output of the C++ program when an object of the derived class is created and its show() method is called, considering the use of a pure virtual function show() in the base class myclass and the initialization of the protected variable x in the derived class?
+Q#.37: What is the output of the C++ program when an object of class3 is created and its inc() method is called, considering the use of virtual inheritance, the inc() method override in various derived classes, and the shared variable x from the base class class1?
+
+
+List of Questions that we have done in 18.1 - 18.4
+18.1  - Write a program that writes 3 character in a file using formatted I/O .
+
+18.2  - Write a program that inputs the names of five cities and store them in a file city.txt
+
+
+
+18.3 -- Write a program that reads the contents of the file test.txt and displays on the screen
+
+
+18.4 -- Write a program that displays all records from city.txt prepared in previous example
+
+
+18.5 -- Write a program that stored five lines of a string in a file and then displays them 
+//on the screen by reading these lines.
+
+
+18.6 -- Write a program that inputs five characters from the user and stores them in a file
+
+
+
+18.7 -- Write a program that writes a characters from a text file and displays them on screen
+
+
+18.8 -- Write a program that reads the character from a text file. It counts total number of characters and total number of vowels in the file.
+
+
+18.9 -- Write a program that inputs five integers and stores it in a file using binary I/O.
+
+
+18.10 -- Write a program that uses a structure variable to input records of three students and stores it in  students.txt
+in binary I/O. Each record console of Roll No, Name and Marks
+
+18.11 -- Write a program that reads the records stored in students.txt file and 
+displays them 
+
+18.12 -- Write a program that creates a file to store name and email of the user using 
+structure
+
+18.13 -- Write a program that stores an object to a file country.txt using binary I/O.
+
+
+18.14 -- Write a program that reads the contents of country.txt and display on the screen.
+
+
+
+
+
+
+
+Questions to do know:-
+
+No 11>>>>   Q#.11: Write a program which takes values in an array and stores it in a pointer, then that pointer prints values of the array.
+Q#.12: Write a program which takes a string as an input and stores that string to a pointer. Then the user inputs if the character is there or not. If it's there, then it prints the character, else it says no character found.
+Q#.13: Create a file using fstream.
+Q#.14: Input a string into the file.
+Q#.15: Output a string from the file.
+Q#.16: Create a Unary Operator Overloading Program using prefix.
+Q#.17: Create a Unary Operator Overloading Program using postfix.
+Q#.18: Add and Subtract using Binary Operator Overloading.
+Q#.19: What is the output of the C++ program when a pointer to the Base class is used to call the display() function on an object of the Derived class, and why does this output occur?
+Q#.20: What is the output of the C++ program when a pointer to the Base class is used to call the display() function on an object of the Derived class, and why does this output occur, considering that the display() function in the Base class is declared as virtual?
+Q#.21: What will be the output of the C++ program provided, which involves a base class myclass, a derived class derived, and a pointer to the base class pointing to an object of the derived class, considering the virtual function show() in the base class?
+Q#.22: What is the output of the C++ program when an object of the derived class is created and its show() method is called, considering the use of a pure virtual function show() in the base class myclass and the initialization of the protected variable x in the derived class?
+Q#.23: What is the output of the C++ program when an object of class3 is created and its inc() method is called, considering the use of virtual inheritance, the inc() method override in various derived classes, and the shared variable x from the base class class1?
+
+
+
+Create a class called time that has separate private int member data for hours, minutes, andseconds. One constructor should initialize this data to 0, and another should initialize it to fixed values. Another member function should display it, in 11:59:59 format. The final member function should add two objects of type time passed as arguments. A main() program should create two initialized time objects and one that isn't initialized. Then it shouldadd the two initialized values together, leaving the result in the third time variable. Finally it shoulddisplay the value of this third variable. Also write output of your program and values vousupposed to add.
+
+
+
+
+
+
+
+

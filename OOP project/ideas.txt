@@ -1,0 +1,40 @@
+                                       1-Inventory Management System,
+
+Classes in it:- 
+1--->Item Class
+2--->Inventory class,
+3--->Sales class,
+(Good UI)
+                                               2-Online Quiz:
+Classes in it:-
+1--->User class,
+2--->Quiz class,
+3--->Quiz Manager class,
+4--->Leaderboard class (Students jink sb sa Zada number ay)
+
+                                              3-Online Book Store:-
+classes in it:-
+1--->Book Class,
+2--->User class,
+3--->Inventory class,
+4--->Shopping cart class,(WIll handel the selected books by the user)
+5--->Search functionality class,
+                                            4-Restaurant Management System
+Classes in it:-
+1--->Menu class,
+2--->Order class,
+3--->Reservation class,
+4--->Inventory class (Inventory reports, track the items, track stocks)
+                                             5-Snake Game
+Classes in it:-
+1--->Snake class,(Sake's body, length direction, position etc,,,, user input and snake changing direction with it)
+2--->GameBoard class,(part of the output scree in which the snake will be moving)
+3--->Food class,(Attributes, like food's position on the gameboard,,,,,,,,randomly place another food, if the snake has eaten the food)
+4--->GameManager class (handle main game loop, game manager, update snake position, check for collision etc)
+
+{
+Appropriate data structure for storing the values, 
+arrays use krn, ga 
+yn vector dono easy hn
+}
+At last game over condition if hit the wall or itself

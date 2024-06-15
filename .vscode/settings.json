@@ -1,0 +1,8 @@
+{
+    "cmake.sourceDirectory": "D:/2nd-Semester/OOP/OOP Codes/Inheritance/Basic",
+    "files.associations": {
+        "iostream": "cpp",
+        "ostream": "cpp",
+        "iosfwd": "cpp"
+    }
+}

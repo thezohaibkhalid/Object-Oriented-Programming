@@ -1,0 +1,27 @@
+Iqra Fatima:
+(What's going on in private too)
+1---->SnakeGame(): Constructor to initialize various attributes of the game.
+2--->void thePlayer(const string a): Function to set the player's name.
+
+
+Rameen Amir:
+
+3--->void In(): Function to continuously listen for user input.
+4--->void AddSegment(): Function to add a new segment to the snake's body.
+
+Romaisa Zia:
+
+5--->int InSnake(int x, int y): Function to check if a given position is within the snake's body.
+6--->void MoveSnake(int x, int y): Function to move the snake by updating its body segments.
+
+Zohaib Khalid:
+
+7--->void Move(): Function to process user input and move the snake accordingly.
+8--->void NewFood(): Function to generate new food at a random location.
+9--->void Draw(): Function to draw the game screen with proper colors and elements.
+10--->void End(): Function to end the game and display a game over message.
+
+Khurram Ihsan:
+
+11--->void HitTest(): Function to check for collisions and update the game state.
+12--->void Run(): Function to run the game loop.
